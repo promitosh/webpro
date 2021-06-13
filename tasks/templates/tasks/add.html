@@ -1,0 +1,17 @@
+<!--- three lines poem to code layout-->
+{% extends "tasks/layout.html" %}
+<!---for body-->
+{% block body %}
+<h1>add task</h1>py
+
+<form action="{% url 'tasks:add' %}"
+      method ="post">
+    {% csrf_token %}
+    {{ form }}
+    <!---django automatically create form--->
+    <input type="submit">
+</form>
+<!----super duper-->
+<a href="{% url 'tasks:index'%}">View task</a>
+<!---end body--->
+{% endblock %}

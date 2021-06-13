@@ -1,0 +1,24 @@
+{% extends "tasks/layout.html" %}
+<!----structure for other than body using template inheritance from layout template---->
+<!---for body structure-->
+<!---- start coding for body block-->
+{% block body %}
+<h1>Tasks</h1>
+<p>About template inheritance<br>layout page is the  general structure of html pages,
+<li>in layout html page first divided into several blocks,</li>
+<li>body part is given name block body </li>
+ <li>the content of the body is usually going to change frequently -</li>
+<li>but other part like head, title usually remain unchanged--</li>-</p>
+<ul>
+    {% for task in tasks %}
+      <li>{{task}}</li>
+    {% empty %}
+    <li>no task</li>
+     {% endfor %}
+</ul>
+<!---link  to particular url called add-->
+<a href="{% url 'tasks:add'%}">Add new task</a>
+<!--django figure out based on contents of url.py-->
+<!--conventional way-->
+<a href="/tasks/add">Add new task</a>
+{% endblock %}
